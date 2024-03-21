@@ -24,8 +24,8 @@
                     </div>
                 </div>
                 <div class="mv__title-wrap">
-                    <p class="mv__title">
-                        「執事」のように<br />あなたの事業を “atooshi” します
+                    <p class="mv__title scroll_up">
+                        <span class="mv__title--background">「執事」のように</span><br /><span class="mv__title--background">あなたの事業を “atooshi” します</span>
                     </p>
                 </div>
             </div>
@@ -34,7 +34,7 @@
 
     <section id="about" class="about">
         <div class="about__inner inner">
-            <div class="about__wrap">
+            <div class="about__wrap scroll_right">
                 <div class="about__image">
                     <img src="<?php echo esc_url(get_theme_file_uri("/images/about.jpg")); ?>" alt="atooshi代表の伊藤淳" class="about__img md-none" />
                 </div>
@@ -60,14 +60,14 @@
 
     <section id="service" class="service">
         <div class="service__inner">
-            <div class="service__title-wrap">
+            <div class="service__title-wrap scroll_up">
                 <h2 class="service__title heading">Service</h2>
                 <p class="service__sub-title heading-sub heading-sub--center">
                     サービス
                 </p>
             </div>
             <div class="service__contents">
-                <div class="service__content-body">
+                <div class="service__content-body scroll_up">
                     <img src="<?php echo esc_url(get_theme_file_uri("/images/service-1.jpg")); ?>" alt="プログラミングしている様子" class="service__img md-none" />
                     <div class="service__content content--left">
                         <p class="service__content-title section-title">Web制作</p>
@@ -80,7 +80,7 @@
                     </div>
                 </div>
 
-                <div class="service__content-body service__content-body--reverse">
+                <div class="service__content-body service__content-body--reverse scroll_up">
                     <img src="<?php echo esc_url(get_theme_file_uri("/images/service-2.jpg")); ?>" alt="動画編集ソフトの画面" class="service__img md-none" />
                     <div class="service__content content--right">
                         <p class="service__content-title section-title">動画制作</p>
@@ -91,7 +91,7 @@
                     </div>
                 </div>
 
-                <div class="service__content-body">
+                <div class="service__content-body scroll_up">
                     <img src="<?php echo esc_url(get_theme_file_uri("/images/service-3.jpg")); ?>" alt="ライブ配信を撮影している様子" class="service__img md-none" />
                     <div class="service__content content--left">
                         <p class="service__content-title section-title">
@@ -109,13 +109,13 @@
 
     <section id="works" class="works">
         <div class="works__inner">
-            <div class="works__title-wrap">
+            <div class="works__title-wrap scroll_left">
                 <h2 class="works__title heading heading--white-color">Works</h2>
                 <p class="works__sub-title heading-sub heading-sub--left heading-sub--sm heading--white-color">
                     制作実績
                 </p>
             </div>
-            <div class="works__contents">
+            <div class="works__contents scroll_up">
                 <div class="works__swiper swiper">
                     <div class="swiper-wrapper works__swiper--wrapper">
                         <?php
@@ -132,16 +132,22 @@
                                 // 1.フィールド名「custom-img」のデータを取得
                                 $image = get_field("custom-img");
 
-                                // 2.$imageのデータから画像のURLを変数化
-                                $url = $image["url"];
+                                if ($image) {
+                                    // 2.$imageのデータから画像のURLを変数化
+                                    $url = $image["url"];
 
-                                // 3.$imageのデータから画像のalt属性を変数化
-                                $alt = $image["alt"];
+                                    // 3.$imageのデータから画像のalt属性を変数化
+                                    $alt = $image["alt"];
+                                }
                                 ?>
 
                                 <a href="<?php echo esc_url(get_field("custom-url")); ?>" class="work__slide-link swiper-slide work__slide">
                                     <div class="work__slide-item">
-                                        <img src="<?php echo $url; ?>" alt="<?php echo $alt; ?>" class="work__slide-img">
+                                        <?php if ($image) : ?>
+                                            <img src="<?php echo $url; ?>" alt="<?php echo $alt; ?>" class="work__slide-img">
+                                        <?php else : ?>
+                                            <img class="work__slide-img" src="<?php echo esc_url(get_theme_file_uri("/images/no-image.png")); ?>)" alt="NoImage画像" />
+                                        <?php endif; ?>
                                         <p class="work__slide-title"><?php the_field("custom-text"); ?></p>
                                     </div>
                                 </a>
@@ -153,51 +159,20 @@
                     </div>
                     <div class="swiper-pagination"></div>
                 </div>
-                <div class="swiper-button-prev"></div>
-                <div class="swiper-button-next"></div>
             </div>
         </div>
     </section>
 
     <section id="contact" class="contact">
         <div class="contact__inner">
-            <div class="contact__title-wrap">
+            <div class="contact__title-wrap scroll_up">
                 <h2 class="contact__title heading">Contact</h2>
                 <p class="contact__sub-title heading-sub heading-sub--center">
                     お問い合わせ
                 </p>
             </div>
 
-            <div class="contact__form form">
-                <dl class="form__list">
-                    <div class="form__field">
-                        <dt class="form__label">
-                            <label for="name" class="form__label-text">お名前<span class="required-tag">必須</span></label>
-                        </dt>
-                        <dd class="form__input"><input type="text" class="form__input-text" name="your-name" /></dd>
-                    </div>
-
-                    <div class="form__field">
-                        <dt class="form__label"><label for="email" class="form__label-text">メールアドレス<span class="required-tag">必須</span></label></dt>
-                        <dd class="form__input"><input type="text" class="form__input-text" name="your-email" /></dd>
-                    </div>
-
-                    <div class="form__field">
-                        <dt class="form__label"><label for="subject" class="form__label-text">件名</label></dt>
-                        <dd class="form__input"><input type="text" class="form__input-text" name="your-subject" /></dd>
-                    </div>
-
-                    <div class="form__field">
-                        <dt class="form__label"><label for="message" class="form__label-text">お問い合わせ内容<span class="required-tag">必須</span></label></dt>
-                        <dd class="form__input"><textarea class="form__input-textarea" name="message"></textarea></dd>
-                    </div>
-                </dl>
-
-
-                <div class="form__button">
-                    <input class="form__button-text" type="submit" value="送信する" />
-                </div>
-            </div>
+            <?php echo do_shortcode('[contact-form-7 id="31084ad" title="問い合わせフォーム"]'); ?>
         </div>
     </section>
 </main>
