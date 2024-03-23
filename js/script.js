@@ -36,21 +36,23 @@ document.querySelectorAll(".works__swiper").forEach((swiperElement) => {
         //ページネーション
         pagination: {
             el: ".swiper-pagination",
-            clickable: true,
+            type: "progressbar",
         },
-
-        slidesPerView: 1,
 
         breakpoints: {
             428: {
-                enabled: mdFlag,
+                loop: false,
                 slidesPerView: 2,
                 slidesPerGroup: 2,
+                // pagination: {
+                //     el: ".swiper-pagination",
+                //     type: "progressbar",
+                // },
             },
             769: {
-                enabled: pcFlag,
-                slidesPerView: 3,
-                slidesPerGroup: 3
+                loop: false,
+                slidesPerView: slidenum,
+                // slidesPerGroup: 3,
             }
         }
     });

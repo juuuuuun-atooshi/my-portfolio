@@ -114,6 +114,10 @@
                 <p class="works__sub-title heading-sub heading-sub--left heading-sub--sm heading--white-color">
                     制作実績
                 </p>
+                <div class="works__remarks">
+                    <p class="wroks__remarks-description">※ 架空サイトには<br class="sm-show">BASIC認証(ID/PASS)が設定されています。</p>
+                    <p class="wroks__remarks-description--sub">ID/PASS： dem0-user / dem0-user</p>
+                </div>
             </div>
             <div class="works__contents scroll_up">
                 <div class="works__swiper swiper">
@@ -144,9 +148,9 @@
                                 <a href="<?php echo esc_url(get_field("custom-url")); ?>" class="work__slide-link swiper-slide work__slide">
                                     <div class="work__slide-item">
                                         <?php if ($image) : ?>
-                                            <img src="<?php echo $url; ?>" alt="<?php echo $alt; ?>" class="work__slide-img">
+                                            <img src="<?php echo $url; ?>" alt="<?php echo $alt; ?>" class="work__slide-img zoom">
                                         <?php else : ?>
-                                            <img class="work__slide-img" src="<?php echo esc_url(get_theme_file_uri("/images/no-image.png")); ?>)" alt="NoImage画像" />
+                                            <img class="work__slide-img zoom" src="<?php echo esc_url(get_theme_file_uri("/images/no-image.png")); ?>)" alt="NoImage画像" />
                                         <?php endif; ?>
                                         <p class="work__slide-title"><?php the_field("custom-text"); ?></p>
                                     </div>

@@ -72,7 +72,7 @@ ol {
 /* A elements that don't have a class get default styles */
 a:not([class]) {
   -webkit-text-decoration-skip: ink;
-          text-decoration-skip-ink: auto;
+  text-decoration-skip-ink: auto;
 }
 
 a {
@@ -123,13 +123,13 @@ textarea {
   resize: vertical;
 }
 
-input[type=checkbox],
-input[type=radio] {
+input[type="checkbox"],
+input[type="radio"] {
   display: none;
 }
 
-input[type=submit],
-input[type=button],
+input[type="submit"],
+input[type="button"],
 label,
 button,
 select {
@@ -150,7 +150,7 @@ select::-ms-expand {
   left: 0;
   width: 100%;
   height: 100px;
-  background-color: #37416E;
+  background-color: #37416e;
 }
 
 .header__inner {
@@ -302,7 +302,7 @@ select::-ms-expand {
   display: none;
   width: 100%;
   height: 100vh;
-  background-color: #37416E;
+  background-color: #37416e;
 }
 
 .drawer-menu__inner {
@@ -385,7 +385,7 @@ select::-ms-expand {
   width: 100%;
   height: inherit;
   -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 
 .mv__title-wrap {
@@ -409,7 +409,7 @@ select::-ms-expand {
   line-height: 1.5;
   letter-spacing: 0.05em;
   text-shadow: 2px 3px 3px rgba(0, 0, 0, 0.1);
-  color: #37416E;
+  color: #37416e;
 }
 @media screen and (max-width: 1024px) {
   .mv__title {
@@ -466,7 +466,7 @@ select::-ms-expand {
   width: 100%;
   height: 100%;
   -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 @media screen and (max-width: 768px) {
   .about__img {
@@ -622,7 +622,7 @@ select::-ms-expand {
   width: 100%;
   height: 100%;
   -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 @media screen and (max-width: 768px) {
   .service__img {
@@ -709,7 +709,7 @@ select::-ms-expand {
 }
 @media screen and (max-width: 428px) {
   .works__swiper--wrapper {
-    padding-bottom: 0;
+    padding-bottom: 30px;
   }
 }
 
@@ -720,8 +720,7 @@ select::-ms-expand {
 }
 
 .work__slide-link {
-  transition: .3s;
-  
+  transition: 0.3s;
 }
 
 .swiper-slide.work__slide {
@@ -739,12 +738,14 @@ select::-ms-expand {
 }
 
 .swiper-horizontal > .swiper-pagination-bullets .swiper-pagination-bullet,
-.swiper-pagination-horizontal.swiper-pagination-bullets .swiper-pagination-bullet {
+.swiper-pagination-horizontal.swiper-pagination-bullets
+  .swiper-pagination-bullet {
   margin: 0 10px;
 }
 @media screen and (max-width: 375px) {
   .swiper-horizontal > .swiper-pagination-bullets .swiper-pagination-bullet,
-.swiper-pagination-horizontal.swiper-pagination-bullets .swiper-pagination-bullet {
+  .swiper-pagination-horizontal.swiper-pagination-bullets
+    .swiper-pagination-bullet {
     margin: 0 5px;
     width: 40px;
   }
@@ -763,14 +764,27 @@ select::-ms-expand {
 }
 @media screen and (max-width: 428px) {
   .swiper-horizontal > .swiper-pagination-bullets,
-.swiper-pagination-bullets.swiper-pagination-horizontal,
-.swiper-pagination-custom,
-.swiper-pagination-fraction .swiper-horizontal > .swiper-pagination-bullets,
-.swiper-pagination-bullets.swiper-pagination-horizontal,
-.swiper-pagination-custom,
-.swiper-pagination-fraction {
+  .swiper-pagination-bullets.swiper-pagination-horizontal,
+  .swiper-pagination-custom,
+  .swiper-pagination-fraction .swiper-horizontal > .swiper-pagination-bullets,
+  .swiper-pagination-bullets.swiper-pagination-horizontal,
+  .swiper-pagination-custom,
+  .swiper-pagination-fraction {
     display: none;
   }
+}
+
+/* プログレスバー部分 */
+.swiper-horizontal > .swiper-pagination-progressbar,
+.swiper-pagination-progressbar.swiper-pagination-horizontal {
+  top: auto;
+  bottom: 0;
+  height: 10px;
+}
+
+/* プログレスバーの色部分 */
+.swiper-pagination-progressbar .swiper-pagination-progressbar-fill {
+  background-color: #fff;
 }
 
 .swiper-pagination-bullet {
@@ -787,7 +801,7 @@ select::-ms-expand {
 
 @media screen and (max-width: 428px) {
   .swiper-button-prev,
-.swiper-button-next {
+  .swiper-button-next {
     width: 34px;
     height: 34px;
     background-color: rgba(255, 255, 255, 0.3);
@@ -796,7 +810,7 @@ select::-ms-expand {
 
 @media screen and (max-width: 428px) {
   .swiper-button-prev::after,
-.swiper-button-next::after {
+  .swiper-button-next::after {
     position: absolute;
     top: 40%;
     left: 38%;
@@ -817,6 +831,29 @@ select::-ms-expand {
 
 .work__slide-title {
   margin-top: 10px;
+}
+
+.works__remarks {
+  margin-top: 10px;
+}
+
+.wroks__remarks-description {
+  color: white;
+}
+@media screen and (max-width: 428px) {
+  .wroks__remarks-description {
+    font-size: 14px;
+  }
+}
+
+.wroks__remarks-description--sub {
+  color: white;
+  font-size: 12px;
+}
+@media screen and (max-width: 428px) {
+  .wroks__remarks-description--sub {
+    margin-top: 5px;
+  }
 }
 
 /* ==================================
@@ -853,7 +890,7 @@ select::-ms-expand {
   margin-top: 80px;
 } */
 
-.form__field+ .form__field {
+.form__field + .form__field {
   margin-top: 36px;
 }
 
@@ -867,7 +904,7 @@ select::-ms-expand {
   font-size: 20px;
   font-weight: 700;
   letter-spacing: 3px;
-  color: #37416E;
+  color: #37416e;
 }
 @media screen and (max-width: 428px) {
   .form__label-text {
@@ -881,7 +918,7 @@ select::-ms-expand {
   font-weight: 700;
   line-height: 1.571;
   letter-spacing: 3px;
-  background-color: #37416E;
+  background-color: #37416e;
   color: #fff;
   border-radius: 12px;
   padding: 2px 16px;
@@ -925,7 +962,7 @@ select::-ms-expand {
 .form__button {
   max-width: 240px;
   width: 100%;
-  background-color: #37416E;
+  background-color: #37416e;
   margin: 0 auto;
   margin-top: 50px;
   transition: 0.5s all;
@@ -957,7 +994,7 @@ span.wpcf7-not-valid-tip {
 }
 
 .footer {
-  background-color: #37416E;
+  background-color: #37416e;
   padding: 20px;
 }
 
@@ -989,7 +1026,7 @@ span.wpcf7-not-valid-tip {
   font-weight: 700;
   font-family: "Noto Serif", serif;
   letter-spacing: 3px;
-  color: #37416E;
+  color: #37416e;
 }
 
 .heading {
@@ -1062,6 +1099,21 @@ span.wpcf7-not-valid-tip {
 
 @media screen and (max-width: 768px) {
   .md-none {
+    display: none;
+  }
+}
+
+.sm-show {
+  display: none;
+}
+@media screen and (max-width: 428px) {
+  .sm-show {
+    display: block;
+  }
+}
+
+@media screen and (max-width: 428px) {
+  .sm-none {
     display: none;
   }
 }
