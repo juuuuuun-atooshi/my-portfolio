@@ -72,7 +72,7 @@ ol {
 /* A elements that don't have a class get default styles */
 a:not([class]) {
   -webkit-text-decoration-skip: ink;
-          text-decoration-skip-ink: auto;
+  text-decoration-skip-ink: auto;
 }
 
 a {
@@ -123,13 +123,13 @@ textarea {
   resize: vertical;
 }
 
-input[type=checkbox],
-input[type=radio] {
+input[type="checkbox"],
+input[type="radio"] {
   display: none;
 }
 
-input[type=submit],
-input[type=button],
+input[type="submit"],
+input[type="button"],
 label,
 button,
 select {
@@ -150,7 +150,7 @@ select::-ms-expand {
   left: 0;
   width: 100%;
   height: 100px;
-  background-color: #37416E;
+  background-color: #37416e;
 }
 
 .header__inner {
@@ -170,6 +170,9 @@ select::-ms-expand {
   align-items: center;
   height: inherit;
   margin-right: auto;
+}
+.header__logo-wrap:hover {
+  opacity: 1;
 }
 
 .header__logo {
@@ -299,7 +302,7 @@ select::-ms-expand {
   display: none;
   width: 100%;
   height: 100vh;
-  background-color: #37416E;
+  background-color: #37416e;
 }
 
 .drawer-menu__inner {
@@ -351,11 +354,10 @@ select::-ms-expand {
 .mv {
   width: 100%;
   height: 100%;
-  margin-top: 70px;
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 769px) {
   .mv {
-    margin-top: 100px;
+    height: auto;
   }
 }
 
@@ -382,8 +384,8 @@ select::-ms-expand {
 .swiper-slide img {
   width: 100%;
   height: inherit;
-  -o-object-fit: contain;
-     object-fit: contain;
+  -o-object-fit: cover;
+  object-fit: cover;
 }
 
 .mv__title-wrap {
@@ -407,7 +409,7 @@ select::-ms-expand {
   line-height: 1.5;
   letter-spacing: 0.05em;
   text-shadow: 2px 3px 3px rgba(0, 0, 0, 0.1);
-  color: #37416E;
+  color: #37416e;
 }
 @media screen and (max-width: 1024px) {
   .mv__title {
@@ -418,6 +420,12 @@ select::-ms-expand {
   .mv__title {
     font-size: 5.67vw;
   }
+}
+
+.mv__title--background {
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.8);
+  margin-top: 10px;
 }
 
 /* ==================================
@@ -434,6 +442,7 @@ select::-ms-expand {
   .about {
     padding-top: 40px;
     padding-bottom: 40px;
+    overflow: hidden;
   }
 }
 
@@ -457,7 +466,7 @@ select::-ms-expand {
   width: 100%;
   height: 100%;
   -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 @media screen and (max-width: 768px) {
   .about__img {
@@ -466,7 +475,6 @@ select::-ms-expand {
 }
 @media screen and (max-width: 428px) {
   .about__img {
-    width: 75%;
     margin: 0 auto;
     margin-top: 10px;
   }
@@ -554,9 +562,9 @@ select::-ms-expand {
   padding-top: 100px;
   padding-bottom: 100px;
 }
-@media screen and (max-width: 428px) {
+@media screen and (max-width: 769px) {
   .service {
-    padding-top: 50px;
+    padding-top: 40px;
   }
 }
 
@@ -614,7 +622,7 @@ select::-ms-expand {
   width: 100%;
   height: 100%;
   -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 @media screen and (max-width: 768px) {
   .service__img {
@@ -662,10 +670,11 @@ select::-ms-expand {
   width: 100%;
   height: 100%;
 }
-@media screen and (max-width: 428px) {
+@media screen and (max-width: 769px) {
   .works {
-    padding-top: 50px;
+    padding-top: 40px;
     padding-bottom: 100px;
+    overflow: hidden;
   }
 }
 
@@ -700,8 +709,18 @@ select::-ms-expand {
 }
 @media screen and (max-width: 428px) {
   .works__swiper--wrapper {
-    padding-bottom: 0;
+    padding-bottom: 30px;
   }
+}
+
+.swiper-slide.work__slide img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+.work__slide-link {
+  transition: 0.3s;
 }
 
 .swiper-slide.work__slide {
@@ -714,27 +733,19 @@ select::-ms-expand {
   aspect-ratio: 1/1;
 }
 
-.swiper-slide.work__slide:nth-child(3n+1) {
-  background-color: red;
-}
-
-.swiper-slide.work__slide:nth-child(3n+2) {
-  /*2、5、8枚目の背景色 */
-  background-color: green;
-}
-
-.swiper-slide.work__slide:nth-child(3n+3) {
-  /*3、6、9枚目の背景色 */
-  background-color: blue;
+.swiper-slide.work__slide::before {
+  background-color: transparent;
 }
 
 .swiper-horizontal > .swiper-pagination-bullets .swiper-pagination-bullet,
-.swiper-pagination-horizontal.swiper-pagination-bullets .swiper-pagination-bullet {
+.swiper-pagination-horizontal.swiper-pagination-bullets
+  .swiper-pagination-bullet {
   margin: 0 10px;
 }
 @media screen and (max-width: 375px) {
   .swiper-horizontal > .swiper-pagination-bullets .swiper-pagination-bullet,
-.swiper-pagination-horizontal.swiper-pagination-bullets .swiper-pagination-bullet {
+  .swiper-pagination-horizontal.swiper-pagination-bullets
+    .swiper-pagination-bullet {
     margin: 0 5px;
     width: 40px;
   }
@@ -753,14 +764,27 @@ select::-ms-expand {
 }
 @media screen and (max-width: 428px) {
   .swiper-horizontal > .swiper-pagination-bullets,
-.swiper-pagination-bullets.swiper-pagination-horizontal,
-.swiper-pagination-custom,
-.swiper-pagination-fraction .swiper-horizontal > .swiper-pagination-bullets,
-.swiper-pagination-bullets.swiper-pagination-horizontal,
-.swiper-pagination-custom,
-.swiper-pagination-fraction {
+  .swiper-pagination-bullets.swiper-pagination-horizontal,
+  .swiper-pagination-custom,
+  .swiper-pagination-fraction .swiper-horizontal > .swiper-pagination-bullets,
+  .swiper-pagination-bullets.swiper-pagination-horizontal,
+  .swiper-pagination-custom,
+  .swiper-pagination-fraction {
     display: none;
   }
+}
+
+/* プログレスバー部分 */
+.swiper-horizontal > .swiper-pagination-progressbar,
+.swiper-pagination-progressbar.swiper-pagination-horizontal {
+  top: auto;
+  bottom: 0;
+  height: 10px;
+}
+
+/* プログレスバーの色部分 */
+.swiper-pagination-progressbar .swiper-pagination-progressbar-fill {
+  background-color: #fff;
 }
 
 .swiper-pagination-bullet {
@@ -777,7 +801,7 @@ select::-ms-expand {
 
 @media screen and (max-width: 428px) {
   .swiper-button-prev,
-.swiper-button-next {
+  .swiper-button-next {
     width: 34px;
     height: 34px;
     background-color: rgba(255, 255, 255, 0.3);
@@ -786,7 +810,7 @@ select::-ms-expand {
 
 @media screen and (max-width: 428px) {
   .swiper-button-prev::after,
-.swiper-button-next::after {
+  .swiper-button-next::after {
     position: absolute;
     top: 40%;
     left: 38%;
@@ -805,6 +829,33 @@ select::-ms-expand {
   transform: rotate(-135deg);
 }
 
+.work__slide-title {
+  margin-top: 10px;
+}
+
+.works__remarks {
+  margin-top: 10px;
+}
+
+.wroks__remarks-description {
+  color: white;
+}
+@media screen and (max-width: 428px) {
+  .wroks__remarks-description {
+    font-size: 14px;
+  }
+}
+
+.wroks__remarks-description--sub {
+  color: white;
+  font-size: 12px;
+}
+@media screen and (max-width: 428px) {
+  .wroks__remarks-description--sub {
+    margin-top: 5px;
+  }
+}
+
 /* ==================================
 # Contact
 ================================== */
@@ -814,7 +865,7 @@ select::-ms-expand {
 }
 @media screen and (max-width: 428px) {
   .contact {
-    padding-top: 50px;
+    padding-top: 40px;
     padding-bottom: 100px;
   }
 }
@@ -833,13 +884,13 @@ select::-ms-expand {
   align-items: center;
 }
 
-.contact__form {
+/* .contact__form {
   max-width: 800px;
   width: 100%;
   margin-top: 80px;
-}
+} */
 
-.form__item:not(:first-child) {
+.form__field + .form__field {
   margin-top: 36px;
 }
 
@@ -853,7 +904,12 @@ select::-ms-expand {
   font-size: 20px;
   font-weight: 700;
   letter-spacing: 3px;
-  color: #37416E;
+  color: #37416e;
+}
+@media screen and (max-width: 428px) {
+  .form__label-text {
+    font-size: 18px;
+  }
 }
 
 .required-tag {
@@ -862,18 +918,34 @@ select::-ms-expand {
   font-weight: 700;
   line-height: 1.571;
   letter-spacing: 3px;
-  background-color: #37416E;
+  background-color: #37416e;
   color: #fff;
   border-radius: 12px;
   padding: 2px 16px;
   margin-left: 24px;
 }
 
-.form__input {
+.wpcf7 {
+  max-width: 800px;
+  width: 100%;
+  margin-top: 80px;
+}
+@media screen and (max-width: 769px) {
+  .wpcf7 {
+    margin-top: 40px;
+  }
+}
+
+.wpcf7-form-control.wpcf7-text.form__input-text,
+.wpcf7-form-control.wpcf7-textarea.form__input-textarea {
   width: 100%;
   height: auto;
   background-color: rgba(55, 65, 110, 0.1);
   margin-top: 16px;
+}
+
+.wpcf7-form.invalid .wpcf7-response-output {
+  display: none;
 }
 
 .form__input-text {
@@ -890,9 +962,14 @@ select::-ms-expand {
 .form__button {
   max-width: 240px;
   width: 100%;
-  background-color: #37416E;
+  background-color: #37416e;
   margin: 0 auto;
   margin-top: 50px;
+  transition: 0.5s all;
+}
+.form__button:hover {
+  box-shadow: 0px 1px 20px rgba(55, 65, 110, 0.8);
+  transform: translateY(-4px);
 }
 
 .form__button-text {
@@ -904,8 +981,20 @@ select::-ms-expand {
   padding: 19px 83px;
 }
 
+span.wpcf7-spinner {
+  display: none;
+}
+
+span.wpcf7-not-valid-tip {
+  background-color: transparent;
+}
+
+.wpcf7-list-item {
+  margin: 0;
+}
+
 .footer {
-  background-color: #37416E;
+  background-color: #37416e;
   padding: 20px;
 }
 
@@ -937,7 +1026,7 @@ select::-ms-expand {
   font-weight: 700;
   font-family: "Noto Serif", serif;
   letter-spacing: 3px;
-  color: #37416E;
+  color: #37416e;
 }
 
 .heading {
@@ -1012,4 +1101,69 @@ select::-ms-expand {
   .md-none {
     display: none;
   }
+}
+
+.sm-show {
+  display: none;
+}
+@media screen and (max-width: 428px) {
+  .sm-show {
+    display: block;
+  }
+}
+
+@media screen and (max-width: 428px) {
+  .sm-none {
+    display: none;
+  }
+}
+
+/*----------------------------
+scroll_up ｜下から上へ出現
+----------------------------*/
+.scroll_up {
+  transition: 0.8s ease-in-out;
+  transform: translateY(30px);
+  opacity: 0;
+}
+
+.scroll_up.on {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/*----------------------------
+scroll_left ｜左から出現
+----------------------------*/
+.scroll_left {
+  transition: 0.8s ease-in-out;
+  transform: translateX(-30px);
+  opacity: 0;
+  filter: alpha(opacity=0);
+  -moz-opacity: 0;
+}
+
+.scroll_left.on {
+  opacity: 1;
+  filter: alpha(opacity=100);
+  -moz-opacity: 1;
+  transform: translateX(0);
+}
+
+/*----------------------------
+scroll_right ｜右から出現
+----------------------------*/
+.scroll_right {
+  transition: 0.8s ease-in-out;
+  transform: translateX(30px);
+  opacity: 0;
+  filter: alpha(opacity=0);
+  -moz-opacity: 0;
+}
+
+.scroll_right.on {
+  opacity: 1;
+  filter: alpha(opacity=100);
+  -moz-opacity: 1;
+  transform: translateX(0);
 }
