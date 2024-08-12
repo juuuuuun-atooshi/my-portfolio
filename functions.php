@@ -40,3 +40,15 @@ function wpcf7_autop_return_false()
 {
     return false;
 }
+
+function custom_posts_per_page($query)
+{
+    if (!is_admin() && $query->is_main_query()) {
+        // カスタム投稿のスラッグを記述
+        if (is_post_type_archive('customer')) {
+            // 表示件数を指定
+            $query->set('posts_per_page', 10);
+        }
+    }
+}
+add_action('pre_get_posts', 'custom_posts_per_page');
