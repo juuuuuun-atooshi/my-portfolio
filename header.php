@@ -40,6 +40,12 @@
                         </a>
                     </li>
                     <li class="header__item">
+                        <a href="#customer" class="header__link">
+                            <p class="header__link-ja">お客様の声</p>
+                            <p class="header__link-en">CUSTOMER</p>
+                        </a>
+                    </li>
+                    <li class="header__item">
                         <a href="#contact" class="header__link">
                             <p class="header__link-ja">お問い合わせ</p>
                             <p class="header__link-en">CONTACT</p>
@@ -75,6 +81,12 @@
                         <a href="#works" class="drawer-menu__link">
                             <p class="drawer-menu__link-ja">制作実績</p>
                             <p class="drawer-menu__link-en">WORKS</p>
+                        </a>
+                    </li>
+                    <li class="drawer-menu__item">
+                        <a href="#customer" class="drawer-menu__link">
+                            <p class="drawer-menu__link-ja">お客様の声</p>
+                            <p class="drawer-menu__link-en">CUSTOMER</p>
                         </a>
                     </li>
                     <li class="drawer-menu__item">
