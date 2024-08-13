@@ -859,18 +859,6 @@ select::-ms-expand {
 /* ==================================
 # Customer
 ================================== */
-.customer {
-
-}
-
-.customer__fv {
-
-}
-
-.customer__title {
-
-}
-
 .customer__inner.inner {
   padding-top: 100px;
   padding-bottom: 100px;
@@ -882,12 +870,15 @@ select::-ms-expand {
   }
 }
 
-.customer__container {
-
+.customer__title-wrap {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-.customer__items {
-
+.customer__container {
+  margin-top: 50px;
 }
 
 .customer__item:not(:first-child) {

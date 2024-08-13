@@ -1,10 +1,13 @@
 <?php get_header(); ?>
 <main>
     <div class="customer">
-        <div class="customer__fv">
-            <h1 class="customer__title">お客様の声</h1>
-        </div>
         <div class="customer__inner inner">
+            <div class="customer__title-wrap">
+                <h2 class="customer__title heading">Customer</h2>
+                <p class="service__sub-title heading-sub heading-sub--center">
+                    お客様の声
+                </p>
+            </div>
             <div class="customer__container">
                 <?php
                 $args = [
