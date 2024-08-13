@@ -66,13 +66,13 @@
             <div class="drawer-menu__inner">
                 <ul class="drawer-menu__items">
                     <li class="drawer-menu__item">
-                        <a href="#about" class="drawer-menu__link">
+                        <a href="<?php echo home_url(); ?>#about" class="drawer-menu__link">
                             <p class="drawer-menu__link-ja">私について</p>
                             <p class="drawer-menu__link-en">ABOUT</p>
                         </a>
                     </li>
                     <li class="drawer-menu__item">
-                        <a href="#service" class="drawer-menu__link">
+                        <a href="<?php echo home_url(); ?>#service" class="drawer-menu__link">
                             <p class="drawer-menu__link-ja">サービス</p>
                             <p class="drawer-menu__link-en">SERVICE</p>
                         </a>
@@ -84,13 +84,13 @@
                         </a>
                     </li>
                     <li class="drawer-menu__item">
-                        <a href="#customer" class="drawer-menu__link">
+                        <a href="<?php echo home_url('/customer'); ?>" class="drawer-menu__link">
                             <p class="drawer-menu__link-ja">お客様の声</p>
                             <p class="drawer-menu__link-en">CUSTOMER</p>
                         </a>
                     </li>
                     <li class="drawer-menu__item">
-                        <a href="#contact" class="drawer-menu__link">
+                        <a href="<?php echo home_url(); ?>#contact" class="drawer-menu__link">
                             <p class="drawer-menu__link-ja">お問い合わせ</p>
                             <p class="drawer-menu__link-en">CONTACT</p>
                         </a>

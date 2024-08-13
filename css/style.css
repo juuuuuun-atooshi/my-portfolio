@@ -1129,13 +1129,13 @@ span.wpcf7-not-valid-tip {
 .md-show {
   display: none;
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 922px) {
   .md-show {
     display: block;
   }
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 922px) {
   .md-none {
     display: none;
   }
