@@ -857,6 +857,50 @@ select::-ms-expand {
 }
 
 /* ==================================
+# Customer
+================================== */
+.customer__inner.inner {
+  padding-top: 100px;
+  padding-bottom: 100px;
+}
+@media screen and (max-width: 428px) {
+  .customer__inner.inner {
+    padding-top: 60px;
+    padding-bottom: 100px;
+  }
+}
+
+.customer__title-wrap {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.customer__container {
+  margin-top: 50px;
+}
+
+.customer__item:not(:first-child) {
+  margin-top: 30px;
+}
+
+.customer__item {
+  border: 1px solid black;
+  padding: 20px;
+}
+
+.customer__items .customer__item p.customer__name {
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.customer__items .customer__item p {
+  margin-top: 10px;
+  font-size: 20px;
+}
+
+/* ==================================
 # Contact
 ================================== */
 .contact {
@@ -883,12 +927,6 @@ select::-ms-expand {
   justify-content: center;
   align-items: center;
 }
-
-/* .contact__form {
-  max-width: 800px;
-  width: 100%;
-  margin-top: 80px;
-} */
 
 .form__field + .form__field {
   margin-top: 36px;
@@ -1091,13 +1129,13 @@ span.wpcf7-not-valid-tip {
 .md-show {
   display: none;
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 922px) {
   .md-show {
     display: block;
   }
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 922px) {
   .md-none {
     display: none;
   }
@@ -1166,4 +1204,40 @@ scroll_right ｜右から出現
   filter: alpha(opacity=100);
   -moz-opacity: 1;
   transform: translateX(0);
+}
+
+/* 
+ページネーション
+*/
+.nav-links {
+  display: flex;
+  gap: 12px;
+}
+
+.pagination__arrow {
+  display: inline-block;
+  width: 11px;
+  height: 18px;
+}
+
+.page-numbers {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  color: #000;
+  border: 1px solid #000;
+  border-radius: 15px;
+}
+
+.page-numbers.current {
+  color: #fff;
+  background-color: #000;
+}
+
+.page-numbers.dots,
+.page-numbers.prev,
+.page-numbers.next {
+  border: none;
 }

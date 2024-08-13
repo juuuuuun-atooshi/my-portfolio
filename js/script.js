@@ -81,10 +81,9 @@ document.querySelectorAll(".works__swiper").forEach((swiperElement) => {
 
 $(function () {
     // ヘッダーの高さ分だけコンテンツを下げる
-    // const height = $(".js-header").height();
-    // $("main").css("margin-top", height);
     // ヘッダーの高さ取得
     const headerHeight = $(".js-header").height();
+    $("main").css("margin-top", headerHeight);
     $('a[href^="#"]').click(function () {
         const speed = 600;
         let href = $(this).attr("href");

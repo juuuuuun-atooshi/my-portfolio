@@ -14,7 +14,7 @@
     <header class="header js-header">
         <div class="header__inner">
             <h1 class="header__name">
-                <a href="#" class="header__logo-wrap">
+                <a href="<?php echo home_url(); ?>" class="header__logo-wrap">
                     <img class="header__logo" src="<?php echo esc_url(get_theme_file_uri("/images/logo.svg")); ?>" alt="ヘッダーロゴ">
                     <p class="header__logo-name">atooshi</p>
                 </a>
@@ -40,6 +40,12 @@
                         </a>
                     </li>
                     <li class="header__item">
+                        <a href="<?php echo home_url('/customer'); ?>" class="header__link">
+                            <p class="header__link-ja">お客様の声</p>
+                            <p class="header__link-en">CUSTOMER</p>
+                        </a>
+                    </li>
+                    <li class="header__item">
                         <a href="#contact" class="header__link">
                             <p class="header__link-ja">お問い合わせ</p>
                             <p class="header__link-en">CONTACT</p>
@@ -60,13 +66,13 @@
             <div class="drawer-menu__inner">
                 <ul class="drawer-menu__items">
                     <li class="drawer-menu__item">
-                        <a href="#about" class="drawer-menu__link">
+                        <a href="<?php echo home_url(); ?>#about" class="drawer-menu__link">
                             <p class="drawer-menu__link-ja">私について</p>
                             <p class="drawer-menu__link-en">ABOUT</p>
                         </a>
                     </li>
                     <li class="drawer-menu__item">
-                        <a href="#service" class="drawer-menu__link">
+                        <a href="<?php echo home_url(); ?>#service" class="drawer-menu__link">
                             <p class="drawer-menu__link-ja">サービス</p>
                             <p class="drawer-menu__link-en">SERVICE</p>
                         </a>
@@ -78,7 +84,13 @@
                         </a>
                     </li>
                     <li class="drawer-menu__item">
-                        <a href="#contact" class="drawer-menu__link">
+                        <a href="<?php echo home_url('/customer'); ?>" class="drawer-menu__link">
+                            <p class="drawer-menu__link-ja">お客様の声</p>
+                            <p class="drawer-menu__link-en">CUSTOMER</p>
+                        </a>
+                    </li>
+                    <li class="drawer-menu__item">
+                        <a href="<?php echo home_url(); ?>#contact" class="drawer-menu__link">
                             <p class="drawer-menu__link-ja">お問い合わせ</p>
                             <p class="drawer-menu__link-en">CONTACT</p>
                         </a>
