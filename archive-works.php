@@ -31,11 +31,16 @@
                                 $alt = $image["alt"];
                                 ?>
 
-                                <?php if ( $image ) : ?>
-                                    <img class="card__img" src="<?php echo $url; ?>" alt="<?php echo $alt; ?>" />
-                                <?php else : ?>
-                                    <img class="card__img" src="<?php echo esc_url(get_theme_file_uri("/images/noimage.jpg")); ?>)" alt="NoImage画像" />
-                                <?php endif; ?>
+                                <div class="card__icatch">
+                                    <?php if ($image) : ?>
+                                        <img class="card__img" src="<?php echo $url; ?>" alt="<?php echo $alt; ?>" />
+                                    <?php else : ?>
+                                        <img class="card__img" src="<?php echo esc_url(get_theme_file_uri("/images/noimage.jpg")); ?>)" alt="NoImage画像" />
+                                    <?php endif; ?>
+
+                                    <a href="<?php echo home_url('/'); ?>" class="card__detail">詳細を見る</a>
+                                    <a href="<?php echo home_url('/'); ?>" class="card__link">サイトを見る</a>
+                                </div>
 
                                 <div class="card__body">
                                     <?php
