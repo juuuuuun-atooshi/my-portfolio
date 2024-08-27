@@ -146,7 +146,7 @@
                                 ?>
 
                                 <div class="work__slide-item work__slide-link swiper-slide work__slide">
-                                    <div class="card__icatch">
+                                    <div class="card__icatch" ontouchstart="">
                                         <?php if ($image) : ?>
                                             <img src="<?php echo $url; ?>" alt="<?php echo $alt; ?>" class="work__slide-img zoom">
                                         <?php else : ?>
@@ -164,17 +164,6 @@
                                         <p class="work__slide-title"><?php the_field("custom-text"); ?></p>
                                     </div>
                                 </div>
-
-                                <!-- <a href="<?php echo esc_url(get_field("custom-url")); ?>" class="work__slide-link swiper-slide work__slide">
-                                    <div class="work__slide-item">
-                                        <?php if ($image) : ?>
-                                            <img src="<?php echo $url; ?>" alt="<?php echo $alt; ?>" class="work__slide-img zoom">
-                                        <?php else : ?>
-                                            <img class="work__slide-img zoom" src="<?php echo esc_url(get_theme_file_uri("/images/no-image.png")); ?>)" alt="NoImage画像" />
-                                        <?php endif; ?>
-                                        <p class="work__slide-title"><?php the_field("custom-text"); ?></p>
-                                    </div>
-                                </a> -->
 
                             <?php endwhile; ?>
                             <?php wp_reset_postdata(); ?>

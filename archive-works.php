@@ -9,6 +9,56 @@
                 </p>
             </div>
             <div class="a-works__container">
+
+                <div class="tab">
+                    <?php
+                    $current_term = get_queried_object();
+                    if (isset($current_term->term_id)) {
+                        $current_term_id = $current_term->term_id;
+                        // ここで$current_term_idを使用する処理を追加します。
+                    } else {
+                        $current_term_id = null;
+                    }
+                    $terms = get_terms([
+                        // 表示するタクソノミースラッグを記述
+                        'taxonomy' => 'genre',
+                        'orderby' => 'name',
+                        'order'   => 'ASC',
+                        // 表示するタームの数を指定
+                        'number'  => 5
+                    ]);
+
+                    // カスタム投稿一覧ページへのURL
+                    $home_class = (is_post_type_archive()) ? 'is-active' : '';
+                    $home_link = sprintf(
+                        //カスタム投稿一覧ページへのaタグに付与するクラスを指定できる
+                        '<p class="tab__link %s" href="%s" alt="%s">全て</p>',
+                        $home_class,
+                        // カスタム投稿一覧ページのスラッグを指定
+                        esc_url(home_url('/works')),
+                        esc_attr(__('View all posts', 'textdomain'))
+                    );
+                    echo sprintf(esc_html__('%s', 'textdomain'), $home_link);
+
+                    // タームのリンク
+                    if ($terms) {
+                        foreach ($terms as $term) {
+                            // カレントクラスに付与するクラスを指定できる
+                            $term_class = ($current_term_id === $term->term_id) ? 'is-active' : '';
+                            $term_link = sprintf(
+                                // 各タームに付与するクラスを指定できる
+                                '<a class="tab__link %s" href="%s" alt="%s">%s</a>',
+                                $term_class,
+                                esc_url(get_term_link($term->term_id)),
+                                esc_attr(sprintf(__('View all posts in %s', 'textdomain'), $term->name)),
+                                esc_html($term->name)
+                            );
+                            echo sprintf(esc_html__('%s', 'textdomain'), $term_link);
+                        }
+                    }
+                    ?>
+                </div>
+
                 <?php
                 $args = [
                     "post_type" => "works",
@@ -31,7 +81,7 @@
                                 $alt = $image["alt"];
                                 ?>
 
-                                <div class="card__icatch">
+                                <div class="card__icatch" ontouchstart="">
                                     <?php if ($image) : ?>
                                         <img class="card__img" src="<?php echo $url; ?>" alt="<?php echo $alt; ?>" />
                                     <?php else : ?>
@@ -39,7 +89,11 @@
                                     <?php endif; ?>
 
                                     <a href="<?php the_permalink(); ?>" class="card__detail">詳細を見る</a>
-                                    <a href="<?php echo esc_url(get_field("custom-url")); ?>" class="card__link">サイトを見る</a>
+                                    <?php if (get_field("custom-url")) { ?>
+                                        <a href="<?php echo esc_url(get_field("custom-url")); ?>" class="card__link">サイトを見る</a>
+                                    <?php } else { ?>
+                                        <p class="card__link">サイト非公開</p>
+                                    <?php } ?>
                                 </div>
 
                                 <div class="card__body">
@@ -47,7 +101,8 @@
                                     $taxonomy_terms = get_the_terms($post->ID, 'genre');
                                     if (! empty($taxonomy_terms)) {
                                         foreach ($taxonomy_terms as $taxonomy_term) {
-                                            echo '<span class="card__category">' . esc_html($taxonomy_term->name) . '</span>';
+                                            $term_link = esc_url(get_term_link($taxonomy_term));
+                                            echo '<span class="card__category"><a class="term_link" href="' . $term_link . '">' . esc_html($taxonomy_term->name) . '</a></span>';
                                         }
                                     }
                                     ?>

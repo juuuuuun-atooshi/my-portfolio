@@ -10,12 +10,77 @@
             </div>
             <div class="a-works__container">
                 <?php
+                $genre_slug = get_query_var('genre');
                 $args = [
                     "post_type" => "works",
+                    'tax_query' => [
+                        [
+                            // タクソノミーのスラッグを指定
+                            'taxonomy' => 'genre',
+                            'field'    => 'slug',
+                            'terms'    => $genre_slug,
+                        ],
+                    ],
                     "posts_per_page" => 10
                 ];
                 $the_query = new WP_Query($args)
                 ?>
+
+                <div class="tab">
+                    <?php
+                    $current_term = get_queried_object();
+                    if (isset($current_term->term_id)) {
+                        $current_term_id = $current_term->term_id;
+                        // ここで$current_term_idを使用する処理を追加します。
+                    } else {
+                        $current_term_id = null;
+                    }
+                    $terms = get_terms([
+                        // 表示するタクソノミースラッグを記述
+                        'taxonomy' => 'genre',
+                        'orderby' => 'name',
+                        'order'   => 'ASC',
+                        // 表示するタームの数を指定
+                        'number'  => 5
+                    ]);
+
+                    // カスタム投稿一覧ページへのURL
+                    $home_class = (is_post_type_archive()) ? 'is-active' : '';
+                    $home_link = sprintf(
+                        //カスタム投稿一覧ページへのaタグに付与するクラスを指定できる
+                        '<a class="tab__link %s" href="%s" alt="%s">全て</a>',
+                        $home_class,
+                        // カスタム投稿一覧ページのスラッグを指定
+                        esc_url(home_url('/works')),
+                        esc_attr(__('View all posts', 'textdomain'))
+                    );
+                    echo sprintf(esc_html__('%s', 'textdomain'), $home_link);
+
+                    // タームのリンク
+                    if ($terms) {
+                        foreach ($terms as $term) {
+                            // カレントクラスに付与するクラスを指定できる
+                            $term_class = ($current_term_id === $term->term_id) ? 'is-active' : '';
+
+                            if ($term_class === 'is-active') {
+                                $term_tag = '<p class="tab__link %s" href="%s" alt="%s">%s</p>';
+                            } else {
+                                $term_tag = '<a class="tab__link %s" href="%s" alt="%s">%s</a>';
+                            }
+
+                            $term_link = sprintf(
+                                // 各タームに付与するクラスを指定できる
+                                $term_tag,
+                                $term_class,
+                                esc_url(get_term_link($term->term_id)),
+                                esc_attr(sprintf(__('View all posts in %s', 'textdomain'), $term->name)),
+                                esc_html($term->name)
+                            );
+                            echo sprintf(esc_html__('%s', 'textdomain'), $term_link);
+                        }
+                    }
+                    ?>
+                </div>
 
                 <?php if ($the_query->have_posts()) : ?>
                     <ul class="a-works-cards">
@@ -47,7 +112,8 @@
                                     $taxonomy_terms = get_the_terms($post->ID, 'genre');
                                     if (! empty($taxonomy_terms)) {
                                         foreach ($taxonomy_terms as $taxonomy_term) {
-                                            echo '<span class="card__category">' . esc_html($taxonomy_term->name) . '</span>';
+                                            $term_link = esc_url(get_term_link($taxonomy_term));
+                                            echo '<span class="card__category"><a class="term_link" href="'. $term_link .'">' . esc_html($taxonomy_term->name) . '</a></span>';
                                         }
                                     }
                                     ?>
