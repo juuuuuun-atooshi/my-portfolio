@@ -145,16 +145,25 @@
                                 }
                                 ?>
 
-                                <a href="<?php echo esc_url(get_field("custom-url")); ?>" class="work__slide-link swiper-slide work__slide">
-                                    <div class="work__slide-item">
+                                <div class="work__slide-item work__slide-link swiper-slide work__slide">
+                                    <div class="card__icatch" ontouchstart="">
                                         <?php if ($image) : ?>
                                             <img src="<?php echo $url; ?>" alt="<?php echo $alt; ?>" class="work__slide-img zoom">
                                         <?php else : ?>
                                             <img class="work__slide-img zoom" src="<?php echo esc_url(get_theme_file_uri("/images/no-image.png")); ?>)" alt="NoImage画像" />
                                         <?php endif; ?>
+
+                                        <a href="<?php the_permalink(); ?>" class="card__detail">詳細を見る</a>
+                                        <?php if (get_field("custom-url")) { ?>
+                                            <a href="<?php echo esc_url(get_field("custom-url")); ?>" class="card__link">サイトを見る</a>
+                                        <?php } else { ?>
+                                            <p class="card__link">サイト非公開</p>
+                                        <?php } ?>
+                                    </div>
+                                    <div class="card__body">
                                         <p class="work__slide-title"><?php the_field("custom-text"); ?></p>
                                     </div>
-                                </a>
+                                </div>
 
                             <?php endwhile; ?>
                             <?php wp_reset_postdata(); ?>

@@ -41,18 +41,13 @@ document.querySelectorAll(".works__swiper").forEach((swiperElement) => {
 
         breakpoints: {
             428: {
-                loop: false,
+                loop: true,
                 slidesPerView: 2,
                 slidesPerGroup: 2,
-                // pagination: {
-                //     el: ".swiper-pagination",
-                //     type: "progressbar",
-                // },
             },
             769: {
-                loop: false,
-                slidesPerView: slidenum,
-                // slidesPerGroup: 3,
+                loop: true,
+                slidesPerView: 3,
             }
         }
     });

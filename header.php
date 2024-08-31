@@ -34,7 +34,7 @@
                         </a>
                     </li>
                     <li class="header__item">
-                        <a href="#works" class="header__link">
+                        <a href="<?php echo home_url('/works'); ?>" class="header__link">
                             <p class="header__link-ja">制作実績</p>
                             <p class="header__link-en">WORKS</p>
                         </a>
@@ -78,7 +78,7 @@
                         </a>
                     </li>
                     <li class="drawer-menu__item">
-                        <a href="#works" class="drawer-menu__link">
+                        <a href="<?php echo home_url('/works'); ?>" class="drawer-menu__link">
                             <p class="drawer-menu__link-ja">制作実績</p>
                             <p class="drawer-menu__link-en">WORKS</p>
                         </a>
