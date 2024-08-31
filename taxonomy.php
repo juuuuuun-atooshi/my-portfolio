@@ -41,7 +41,7 @@
                         'orderby' => 'name',
                         'order'   => 'ASC',
                         // 表示するタームの数を指定
-                        'number'  => 5
+                        'number'  => 10
                     ]);
 
                     // カスタム投稿一覧ページへのURL
